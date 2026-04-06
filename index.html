@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pan de Centeno y Kombucha - Artesanal de 36hs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #fdfcf9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #fdfcf9 0%, #f5f3ed 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '✦';
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            font-size: 60px;
+            color: #1a1a1a;
+            opacity: 0.1;
+        }
+
+        .hero::after {
+            content: '✦';
+            position: absolute;
+            bottom: 15%;
+            right: 15%;
+            font-size: 60px;
+            color: #1a1a1a;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .bread-illustration {
+            width: 200px;
+            height: auto;
+            margin: 40px auto;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: #1a1a1a;
+            color: #fdfcf9;
+            text-decoration: none;
+            border: 3px solid #1a1a1a;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            background-color: #fdfcf9;
+            color: #1a1a1a;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            border: 3px solid #1a1a1a;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fdfcf9;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 15px 15px 0 #1a1a1a;
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 20px;
+            background-color: #f5f3ed;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 54px;
+            border: 3px solid #1a1a1a;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 20px;
+            background-color: #fff;
+        }
+
+        .product-card {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 50px;
+            border: 3px solid #1a1a1a;
+            border-radius: 20px;
+            text-align: center;
+            background-color: #fdfcf9;
+        }
+
+        .product-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .product-details {
+            margin: 30px 0;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .product-details li {
+            margin: 10px 0;
+            list-style-position: inside;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 20px;
+            background-color: #1a1a1a;
+            color: #fdfcf9;
+        }
+
+        .contact .section-title {
+            color: #fdfcf9;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid #fdfcf9;
+            background-color: transparent;
+            color: #fdfcf9;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 18px;
+            background-color: #fdfcf9;
+            color: #1a1a1a;
+            border: 3px solid #fdfcf9;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+        }
+
+        .submit-button:hover {
+            background-color: transparent;
+            color: #fdfcf9;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            background-color: #0a0a0a;
+            color: #fdfcf9;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                padding: 30px;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pan de Centeno<br>y Kombucha</h1>
+            <p class="hero-subtitle">36hs de Fermentación</p>
+            
+            <svg class="bread-illustration" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                <!-- Bread loaves illustration -->
+                <path d="M 150 80 Q 150 50 130 40 Q 110 30 90 40 Q 70 50 70 80 L 70 130 L 150 130 Z" 
+                      fill="none" stroke="#1a1a1a" stroke-width="3"/>
+                <path d="M 120 80 Q 120 55 105 45 Q 90 35 75 45 Q 60 55 60 80 L 60 130 L 120 130 Z" 
+                      fill="none" stroke="#1a1a1a" stroke-width="3"/>
+                <path d="M 90 80 Q 90 60 77 50 Q 64 40 51 50 Q 38 60 38 80 L 38 130 L 90 130 Z" 
+                      fill="none" stroke="#1a1a1a" stroke-width="3"/>
+                <!-- Sparkles -->
+                <text x="20" y="40" font-size="20" fill="#1a1a1a">✦</text>
+                <text x="170" y="40" font-size="20" fill="#1a1a1a">✦</text>
+            </svg>
+
+            <p style="max-width: 600px; margin: 0 auto 20px; font-size: 1.1rem;">
+                Pan artesanal con <strong>BAJO ÍNDICE GLUCÉMICO</strong>,<br>
+                elaborado con centeno integral y kombucha
+            </p>
+            
+            <a href="#contacto" class="cta-button">Hacer Pedido</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Nuestro Pan?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">◐</div>
+                    <h3>Bajo Índice Glucémico</h3>
+                    <p>La fermentación larga reduce significativamente el índice glucémico, haciendo que sea más saludable para tu organismo.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">◷</div>
+                    <h3>36hs de Fermentación</h3>
+                    <p>Proceso artesanal que mejora la digestibilidad y desarrolla sabores complejos y únicos.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">◉</div>
+                    <h3>Con Kombucha</h3>
+                    <p>Ingrediente especial que aporta probióticos naturales y un toque de acidez característico.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">□</div>
+                    <h3>Congelado y Porcionado</h3>
+                    <p>Listo para descongelar y disfrutar. Máxima frescura y comodidad en porciones perfectas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">△</div>
+                    <h3>Alto en Fibra</h3>
+                    <p>9.5g de fibra por cada 100g. Excelente para la digestión y saciedad prolongada.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">○</div>
+                    <h3>Multigrano</h3>
+                    <p>Combinación perfecta de centeno, avena, arroz y garbanzos para un perfil nutricional completo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Nuestro Proceso</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Selección</h3>
+                    <p>Elegimos los mejores ingredientes: harinas integrales y kombucha artesanal</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Fermentación</h3>
+                    <p>36 horas de fermentación a temperatura controlada</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Horneado</h3>
+                    <p>Cocción artesanal para lograr la corteza perfecta</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Porcionado</h3>
+                    <p>Cortamos y congelamos en porciones ideales para tu consumo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="productos">
+        <div class="container">
+            <h2 class="section-title">Nuestro Pan</h2>
+            
+            <div class="product-card">
+                <h3>Pan de Centeno y Kombucha</h3>
+                
+                <ul class="product-details">
+                    <li>✦ 36 horas de fermentación</li>
+                    <li>✦ Bajo índice glucémico</li>
+                    <li>✦ Sin conservantes ni aditivos</li>
+                    <li>✦ Alto contenido de fibra</li>
+                    <li>✦ Multigrano nutritivo</li>
+                </ul>
+
+                <!-- Ingredientes -->
+                <div style="margin: 30px 0; padding: 25px; background-color: #fff; border: 3px solid #1a1a1a; border-radius: 10px; text-align: left;">
+                    <h4 style="text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; text-align: center; font-size: 1.1rem;">Ingredientes</h4>
+                    <p style="font-size: 1rem; line-height: 1.8;">
+                        Harina de centeno, harina de avena, harina de arroz, harina de garbanzos, agua, kombucha, aceite, psyllium, goma xántica, levadura, sal.
+                    </p>
+                </div>
+
+                <!-- Tabla Nutricional -->
+                <div style="margin: 30px 0; padding: 25px; background-color: #fff; border: 3px solid #1a1a1a; border-radius: 10px;">
+                    <h4 style="text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; font-size: 1.1rem;">Información Nutricional</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px; opacity: 0.8;">Porción: 100g</p>
+                    
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+                        <tbody>
+                            <tr style="border-bottom: 2px solid #1a1a1a;">
+                                <td style="padding: 12px 0; font-weight: bold;">Componente</td>
+                                <td style="padding: 12px 0; text-align: right; font-weight: bold;">Cantidad</td>
+                                <td style="padding: 12px 0; text-align: right; font-weight: bold;">% VD (*)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 10px 0;">Valor Energético</td>
+                                <td style="padding: 10px 0; text-align: right;">248 kcal / 1037 kJ</td>
+                                <td style="padding: 10px 0; text-align: right;">6%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 10px 0;">Carbohidratos</td>
+                                <td style="padding: 10px 0; text-align: right;">42 g</td>
+                                <td style="padding: 10px 0; text-align: right;">7%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0; padding-left: 15px;">
+                                <td style="padding: 8px 0 8px 15px; font-size: 0.9rem;">de los cuales azúcares</td>
+                                <td style="padding: 8px 0; text-align: right; font-size: 0.9rem;">1.2 g</td>
+                                <td style="padding: 8px 0; text-align: right; font-size: 0.9rem;">-</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 10px 0;">Proteínas</td>
+                                <td style="padding: 10px 0; text-align: right;">8.5 g</td>
+                                <td style="padding: 10px 0; text-align: right;">6%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 10px 0;">Grasas Totales</td>
+                                <td style="padding: 10px 0; text-align: right;">5.2 g</td>
+                                <td style="padding: 10px 0; text-align: right;">5%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 8px 0 8px 15px; font-size: 0.9rem;">Grasas Saturadas</td>
+                                <td style="padding: 8px 0; text-align: right; font-size: 0.9rem;">0.8 g</td>
+                                <td style="padding: 8px 0; text-align: right; font-size: 0.9rem;">2%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 8px 0 8px 15px; font-size: 0.9rem;">Grasas Trans</td>
+                                <td style="padding: 8px 0; text-align: right; font-size: 0.9rem;">0 g</td>
+                                <td style="padding: 8px 0; text-align: right; font-size: 0.9rem;">-</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 10px 0;">Fibra Alimentaria</td>
+                                <td style="padding: 10px 0; text-align: right;">9.5 g</td>
+                                <td style="padding: 10px 0; text-align: right;">19%</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;">Sodio</td>
+                                <td style="padding: 10px 0; text-align: right;">380 mg</td>
+                                <td style="padding: 10px 0; text-align: right;">8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 0.75rem; margin-top: 15px; opacity: 0.7; line-height: 1.4;">
+                        (*) % Valores Diarios con base a una dieta de 2000 kcal u 8400 kJ. Sus valores diarios pueden ser mayores o menores dependiendo de sus necesidades energéticas.
+                    </p>
+                </div>
+
+                <p style="margin: 30px 0; font-size: 1.1rem; padding: 20px; background-color: #f5f3ed; border-radius: 10px;">
+                    <strong>Presentación:</strong> Paquetes congelados porcionados<br>
+                    <strong>Peso por paquete:</strong> Aprox. 250g<br>
+                    <strong>Conservación:</strong> Congelado hasta 3 meses
+                </p>
+
+                <p style="margin: 20px 0; padding: 20px; background-color: #fff; border: 2px solid #1a1a1a; border-radius: 10px;">
+                    <strong>Modo de uso:</strong><br>
+                    Descongelar a temperatura ambiente o tostar directamente desde el freezer
+                </p>
+
+                <a href="#contacto" class="cta-button">Encargar Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Hacé tu Pedido</h2>
+            
+            <div class="contact-form">
+                <div class="success-message" id="successMessage">
+                    ¡Gracias por tu pedido! Te contactaremos pronto.
+                </div>
+
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="+54 9 11 xxxx-xxxx">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad de paquetes *</label>
+                        <select id="cantidad" name="cantidad" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="1">1 paquete (250g)</option>
+                            <option value="2">2 paquetes (500g)</option>
+                            <option value="3">3 paquetes (750g)</option>
+                            <option value="4">4 paquetes (1kg)</option>
+                            <option value="5+">5 o más paquetes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje (opcional)</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="¿Alguna consulta o preferencia de entrega?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">Enviar Pedido</button>
+                </form>
+
+                <p style="text-align: center; margin-top: 30px; opacity: 0.8;">
+                    También podés escribirnos por WhatsApp al<br>
+                    <strong style="font-size: 1.2rem;">+54 9 11 xxxx-xxxx</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Pan de Centeno y Kombucha</strong></p>
+        <p>Elaboración artesanal • Buenos Aires, Argentina</p>
+        <p style="margin-top: 20px; opacity: 0.7;">© 2026 Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+            
+            // Here you would typically send the data to your backend
+            console.log('Order data:', data);
+            
+            // Optional: Send to WhatsApp
+            // const message = `Hola! Quiero hacer un pedido:\nNombre: ${data.nombre}\nEmail: ${data.email}\nTeléfono: ${data.telefono}\nCantidad: ${data.cantidad}\nMensaje: ${data.mensaje}`;
+            // const whatsappUrl = `https://wa.me/5491xxxxxxxx?text=${encodeURIComponent(message)}`;
+            // window.open(whatsappUrl, '_blank');
+        });
+
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

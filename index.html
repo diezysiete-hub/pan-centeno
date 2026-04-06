@@ -637,10 +637,10 @@
             // Here you would typically send the data to your backend
             console.log('Order data:', data);
             
-            // Optional: Send to WhatsApp
-            // const message = `Hola! Quiero hacer un pedido:\nNombre: ${data.nombre}\nEmail: ${data.email}\nTeléfono: ${data.telefono}\nCantidad: ${data.cantidad}\nMensaje: ${data.mensaje}`;
-            // const whatsappUrl = `https://wa.me/5491xxxxxxxx?text=${encodeURIComponent(message)}`;
-            // window.open(whatsappUrl, '_blank');
+            Optional: Send to WhatsApp
+            const message = `Hola! Quiero hacer un pedido:\nNombre: ${data.nombre}\nEmail: ${data.email}\nTeléfono: ${data.telefono}\nCantidad: ${data.cantidad}\nMensaje: ${data.mensaje}`;
+            const whatsappUrl = `https://wa.me/5491xxxxxxxx?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         });
 
         // Smooth scroll for CTA buttons
